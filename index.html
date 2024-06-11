@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess number using js</title>
+</head>
+<body>
+
+    <style>
+        body{
+            background: linear-gradient(45deg , rgb(221, 221, 254), white);
+            height: 500px;
+        }
+        h1{
+            margin-top: 180px;
+            font-size: 45px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+            align-items: center;
+            text-align: center;
+        }
+        #yourInp{
+            font-size: 20px;
+            margin: 20px;
+            margin-left: 550px;
+            padding: 10px;
+            border: 2px solid gray;
+            border-radius: 10px;
+        }
+        #btn{
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            text-transform: capitalize;
+            padding: 10px;
+            margin: 10px;
+            background-color: rgb(48, 116, 119);
+            color: white;
+            border: 1px solid rgb(3, 52, 52);
+            border-radius: 10px;
+        }
+        p{
+            font-size: 30px;
+            margin: 30px;
+            margin-left: 550px;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+            text-transform: capitalize;
+        }
+    </style>
+    <div class="container">
+        <h1>
+            Guess this number
+        </h1>
+        <input type="number" name="num" id="yourInp" title="num" placeholder="Enter your guess">
+        <button type="submit" id="btn" onclick="guessNo()">check</button>
+        <p></p>
+    </div>
+
+    <script>
+
+        let num= Math.floor(Math.random()*101);
+        console.log(num);
+        let yourTry=0;
+
+        function guessNo(){
+            let guess= document.getElementById("yourInp").value;
+            let p= document.getElementsByTagName("p")[0];
+        // let guess= prompt("Enter your guess");
+        
+if(guess<101 && guess > 0){
+
+    if(guess < num){
+            // console.log("your guess is less.");
+            p.innerHTML="your guess is less.";
+            guess.innerHTML=" ";
+            yourTry++;
+        }
+    else if(guess > num){
+            // console.log("your guess is greater.");
+            p.innerHTML="your guess is greater.";
+            guess.innerHTML=" ";
+            yourTry++;
+        }
+    else{
+            // console.log("Congratulations! you guessed it right");
+            p.innerHTML="Congratulations! you guessed it right, in "+ yourTry + " tries";
+            guess.innerHTML=" ";
+            yourTry++;
+        }
+}
+else{
+    // console.log("number is between 0 to 100");
+    p.innerHTML="number is between 0 to 100";
+    guess.innerHTML=" ";
+    yourTry++;
+}
+
+        }
+
+    </script>
+</body>
+</html>
